@@ -1,0 +1,24 @@
+<div class="wrapper">
+    <form (ngSubmit)="onLogin()">
+        <h2>Login</h2>
+        <div class="input-field">
+            <input type="text" id="email" name="email" [(ngModel)]="loginObj.email" required>
+            <label>Email</label>
+        </div>
+        <div class="input-field">
+            <input type="password" id="password" name="password" [(ngModel)]="loginObj.password" required>
+            <label>Password</label>
+        </div>
+        <div class="forget">
+            <label for="remember">
+                <input type="checkbox" id="remember">
+                <p>Remember me</p>
+            </label>
+            <a>Forgot password?</a>
+        </div>
+        <button type="submit">Log In</button>
+        <div class="register">
+            <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+        </div>
+    </form>
+</div>

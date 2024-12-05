@@ -1,0 +1,63 @@
+== {{ form.controls.username.errors | json }} ==
+== {{ form.controls.email.errors | json }} ==
+== {{ form.controls.password.errors | json }} ==
+== {{ form.controls.confirmPassword.errors | json }} ==
+
+<div class="wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSignup()">
+    <h2>Sign Up</h2>
+    <div class="input-field">
+      <input
+        type="text"
+        id="username"
+        name="username"
+        formControlName="username"
+      />
+      <label>Username</label>
+    </div>
+    @if (usernameIsInvalid) {
+    <p class="error-label">*Username is required</p>
+    }
+    <div class="input-field">
+      <input
+        type="text"
+        id="email"
+        name="email"
+        formControlName="email"
+      />
+      <label>Email</label>
+    </div>
+    @if (emailIsInvalid) {
+        <p class="error-label">*Email is required</p>
+    }
+    <div class="input-field">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+      />
+      <label>Password</label>
+    </div>
+    @if (passwordIsInvalid) {
+        <p class="error-label">*Password is required</p>
+    }
+    <div class="input-field">
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      <label>Confirm Password</label>
+    </div>
+    @if (confirmPasswordIsInvalid) {
+        <p class="error-label">*Confirm Password is required</p>
+    }
+
+    <button type="submit">Sign Up</button>
+    <div class="register">
+      <p>Already have an account? <a routerLink="/login">Log In</a></p>
+    </div>
+  </form>
+</div>
